@@ -1,8 +1,10 @@
 $text-color: #738eb7;
+$primary-color: #00fcfa;
 
 * {
     font-family: HankenGrotesk;
 }
+
 .divider {
     width: 100%;
     height: .2px;
@@ -21,6 +23,7 @@ $text-color: #738eb7;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 
+
     & * {
         color: $text-color
     }
@@ -33,39 +36,67 @@ $text-color: #738eb7;
         color: white
     }
 
+}
 
-    & .creator {
-        font-size: .8rem;
+.img-container {
+    position: relative;
+
+    & .view-overlay {
+        inset: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
         display: flex;
-        align-items: center;
-        gap: 6px;
+        z-index: 10;
+        opacity: 0;
+        transition: all .2s ease-out;
+        background-color: transparentize($primary-color, .5);
+        cursor: pointer;
     }
 
-    & .creator span{
+    & .view-overlay:hover {
+        opacity: 1;
+    }
+
+
+    & img {
+        margin: auto auto;
+    }
+
+}
+
+
+.creator {
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    & span {
         color: white
     }
 
-    & .creator img {
+    & img {
         height: 1.5rem;
     }
 }
 
- .price-section {
+.price-section {
     display: flex;
     justify-content: space-between;
 }
 
- .price-section h5 {
-     display: flex;
-     align-items: center;
+.price-section h5 {
+    display: flex;
+    align-items: center;
     gap: 6px;
 }
 
 .price-section h5:first-of-type {
-    color: #00fcfa
+    color: $primary-color;
 }
 
 
- .price-section h5 img {
+.price-section h5 img {
     height: 90%;
 }
