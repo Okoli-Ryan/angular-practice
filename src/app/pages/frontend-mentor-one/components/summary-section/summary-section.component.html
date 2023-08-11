@@ -1,0 +1,10 @@
+<div class="summary-container">
+    <h4>Summary</h4>
+    <div class="summary-score-container">
+
+        <ng-container *ngFor="let item of summaryList">
+            <app-summary [color]="item.color" [field]="item.field" [score]="item.score" [src]="item.icon" />
+        </ng-container>
+    </div>
+    <button class="submit-button">Continue</button>
+</div>

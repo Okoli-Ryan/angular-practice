@@ -1,0 +1,45 @@
+$secondary-color: #303b59;
+
+:host {
+    width: 50%;
+}
+
+.summary-container {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-between;
+    height: 100%;
+
+
+    & .summary-score-container {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}
+
+.submit-button {
+    appearance: none;
+    width: 100%;
+    padding: 12px;
+    border-radius: 32px;
+    color: white;
+    background-color: $secondary-color;
+    font-family: HankenGrotesk;
+    font-weight: 600;
+}
+
+
+@media (max-width: 479px) {
+
+    :host {
+        width: 100%;
+    }
+
+    .summary-container{
+        gap: 32px;
+    }
+}

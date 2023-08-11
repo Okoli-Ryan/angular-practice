@@ -1,0 +1,27 @@
+$secondary-color: #303b59;
+
+.summary {
+    display: flex;
+    background-color: red;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-radius: 6px;
+    width: 100%;
+
+    & .summary__field {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    
+    & > h5 {
+        color: $secondary-color;
+
+        
+    }
+
+    & > h5 span {
+        color: #a09ca6;
+    }
+}
