@@ -1,0 +1,144 @@
+$primary-color: #3d8168;
+$text-color: #5a5b5e;
+
+* {
+    font-family: Grobek;
+}
+
+@font-face {
+    font-family: HankenGrotesk;
+    src: url('../../../assets/frontend-mentor-1/fonts/HankenGrotesk-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: Grobek;
+    src: url('../../../assets/frontend-mentor-2/fonts/Fontspring-DEMO-grobekalt-regular.otf');
+}
+
+@font-face {
+    font-family: Grobek;
+    src: url('../../../assets/frontend-mentor-2/fonts/Fontspring-DEMO-grobek-bold.otf');
+    font-weight: bold;
+}
+
+.container {
+    width: 100%;
+    max-width: 36rem;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
+
+.image-container {
+    width: 50%;
+    height: 27rem;
+    
+    & > img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.description-container {
+    background-color: white;
+    display: flex;
+    width: 50%;
+    padding: 32px;
+    flex-direction: column;
+    gap: 16px;
+
+    & .header {
+        line-height: 120%;
+    }
+
+    & .sub-header {
+        font-weight: 300;
+        letter-spacing: 2px;
+        font-family: HankenGrotesk;
+        font-size: 12px;
+        color: $text-color;
+    }
+
+    & .description {
+        font-size: 14px;
+        font-family: HankenGrotesk;
+        color: $text-color
+    }
+}
+
+.price-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+
+    & .price {
+        color: $primary-color;
+    }
+
+    & .price__former {
+        text-decoration: line-through;
+        font-weight: 300;
+        color: $text-color
+    }
+}
+
+.add-to-cart {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    color: white;
+    font-weight: bold;
+    align-items: center;
+    background-color: $primary-color;
+    transition: all .2s ease-out;
+    
+    & span {
+        font-family: HankenGrotesk;
+
+    }
+
+    &:hover {
+        background-color: lighten($primary-color, 15%);
+    }
+}
+
+
+.mobile {
+    display: hidden;
+}
+.desktop {
+    display: block;
+}
+
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        margin: 1rem;
+        max-width: 24rem;
+
+        & .description-container, & .image-container {
+            width: 100%;
+        }
+
+        &.image-container img{
+            // height: 8rem;
+        }
+    }
+
+    .image-container {
+        height: 14rem;
+    }
+
+    .mobile {
+        display: block;
+    }
+    .desktop {
+        display: hidden;
+    }
+  }
