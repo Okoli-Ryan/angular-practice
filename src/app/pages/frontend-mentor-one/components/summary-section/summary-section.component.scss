@@ -40,5 +40,11 @@ $secondary-color: #303b59;
 
     .summary-container{
         gap: 32px;
+
+        & .summary-score-container {
+            gap: 16px
+        }
     }
+
+    
 }
