@@ -1,1 +1,34 @@
-<p>interactive-rating works!</p>
+<center-layout bg="#141519">
+    <div class="container" *ngIf="!isSubmitted; else submitted_template">
+        <div class="img-container">
+            <img src="assets/interactive-rating/images/icon-star.svg" alt="">
+        </div>
+        <h2>How did we do?</h2>
+        <p class="note">
+            Please let us know how we did with our support request. All feedback is appreciated to help us improve our
+            offering!
+        </p>
+        <div class="rating-buttons-container">
+            <button (click)="selectRating(item)" *ngFor="let item of [1, 2, 3, 4, 5]"
+                [class]="{'rating-button__active': selectedRating === item, 'rating-button': true}">
+                {{item}}
+            </button>
+        </div>
+        <button class="submit" (click)="submit()">
+            SUBMIT
+        </button>
+    </div>
+    <!-- Thank you section -->
+    <ng-template #submitted_template>
+        <div class="container thank-you-container">
+            <img src="assets/interactive-rating/images/illustration-thank-you.svg" alt="">
+            <div class="pill">
+                You selected {{selectedRating}} out of 5
+            </div>
+            <h2>Thank you!</h2>
+            <p class="note center">We appreciate you taking the time to give a rating. If you ever need more support, don't hesistate to get
+                in touch</p>
+        </div>
+    </ng-template>
+
+</center-layout>
