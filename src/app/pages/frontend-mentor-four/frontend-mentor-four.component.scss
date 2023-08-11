@@ -76,7 +76,7 @@ $primary-color: #3829e0;
 
 .plan-container {
     display: flex;
-    justify-content: space-between;
+    gap: .6rem;
     align-items: center;
     width: 100%;
     background-color: #f8f9fe;
@@ -95,6 +95,7 @@ $primary-color: #3829e0;
 
     & > a {
         font-size: 12px;
-        color: $primary-color
+        color: $primary-color;
+        margin-left: auto;
     }
 }
