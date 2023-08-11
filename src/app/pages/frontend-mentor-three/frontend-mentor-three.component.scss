@@ -1,0 +1,71 @@
+$text-color: #738eb7;
+
+* {
+    font-family: HankenGrotesk;
+}
+.divider {
+    width: 100%;
+    height: .2px;
+    background-color: transparentize($text-color, .4);
+}
+
+.container {
+    background-color: #15273f;
+    display: flex;
+    gap: 1.2rem;
+    width: 100%;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 20rem;
+    margin: 1rem;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+    & * {
+        color: $text-color
+    }
+
+    & .hero-image {
+        width: 100%;
+    }
+
+    & .nft-name {
+        color: white
+    }
+
+
+    & .creator {
+        font-size: .8rem;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    & .creator span{
+        color: white
+    }
+
+    & .creator img {
+        height: 1.5rem;
+    }
+}
+
+ .price-section {
+    display: flex;
+    justify-content: space-between;
+}
+
+ .price-section h5 {
+     display: flex;
+     align-items: center;
+    gap: 6px;
+}
+
+.price-section h5:first-of-type {
+    color: #00fcfa
+}
+
+
+ .price-section h5 img {
+    height: 90%;
+}

@@ -5,22 +5,6 @@ $text-color: #5a5b5e;
     font-family: Grobek;
 }
 
-@font-face {
-    font-family: HankenGrotesk;
-    src: url('../../../assets/frontend-mentor-1/fonts/HankenGrotesk-VariableFont_wght.ttf');
-}
-
-@font-face {
-    font-family: Grobek;
-    src: url('../../../assets/frontend-mentor-2/fonts/Fontspring-DEMO-grobekalt-regular.otf');
-}
-
-@font-face {
-    font-family: Grobek;
-    src: url('../../../assets/frontend-mentor-2/fonts/Fontspring-DEMO-grobek-bold.otf');
-    font-weight: bold;
-}
-
 .container {
     width: 100%;
     max-width: 36rem;
