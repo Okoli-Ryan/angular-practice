@@ -1,0 +1,19 @@
+<center-layout bg="#0a0c1b">
+    <div class="container">
+        <div class="details-container">
+            <h1>Get <span>insights</span> that help your business grow.</h1>
+            <p>Discover the benefits of business analytics and make better decisions regarding revenue, customer
+                experience, and overall efficiency.</p>
+            <div class="footer">
+                <ng-container *ngFor="let item of statistics">
+                    <div class="footer__item">
+                        <h2>{{item.title}}</h2>
+                        <p>{{item.subTitle}}</p>
+                    </div>
+                </ng-container>
+
+            </div>
+        </div>
+        <img src="assets/frontend-mentor-5/images/image-header-desktop.jpg" alt="">
+    </div>
+</center-layout>
