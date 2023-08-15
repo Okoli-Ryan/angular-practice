@@ -1,0 +1,5 @@
+<ol>
+    <li *ngFor="let route of currentRoutes">
+        <a [routerLink]="route.path">{{route.path | uppercase}}</a>
+    </li>
+</ol>

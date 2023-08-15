@@ -6,8 +6,10 @@ import { FrontendMentorThreeComponent } from './pages/frontend-mentor-three/fron
 import { FrontendMentorFourComponent } from './pages/frontend-mentor-four/frontend-mentor-four.component';
 import { FrontendMentorFiveComponent } from './pages/frontend-mentor-five/frontend-mentor-five.component';
 import { InteractiveRatingComponent } from './pages/interactive-rating/interactive-rating.component';
+import { HomeComponent } from './pages/home/home.component';
 
-const routes: Routes = [
+export const routes: Routes = [
+  {path: '', component: HomeComponent},
   {path: 'frontend-mentor-1', component: FrontendMentorOneComponent},
   {path: 'frontend-mentor-2', component: FrontendMentorTwoComponent},
   {path: 'frontend-mentor-3', component: FrontendMentorThreeComponent},
