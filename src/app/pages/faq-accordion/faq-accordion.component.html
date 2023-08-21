@@ -1,0 +1,41 @@
+<center-layout>
+    <div class="container">
+        <div class="img-container">
+            <img src="assets/faq-accordion/illustration-woman-online-mobile.svg" alt="" class="img-container__image">
+            <img src="assets/faq-accordion/bg-pattern-mobile.svg" alt="" class="img-container__image-bg mobile">
+            <img src="assets/faq-accordion/bg-pattern-desktop.svg" alt="" class="img-container__image-bg desktop">
+        </div>
+       
+        <div class="accordion-container">
+            <h2>FAQ</h2>
+            <ul class="accordion">
+                <li *ngFor="let item of ACCORDION_DATA; let index = index" class="accordion__item" (click)="handleSelect(index)">
+                    <ng-container [ngTemplateOutlet]="accordionItem"
+                    [ngTemplateOutletContext]="{$implicit: item, index: index}" />
+                </li>
+            </ul>
+        </div>
+    </div>
+</center-layout>
+
+<!-- image container - desktop -->
+<ng-template #mobileImage>
+    <img src="assets/faq-accordion/illustration-woman-online-mobile.svg" alt="">
+    <img src="assets/faq-accordion/bg-pattern-mobile.svg" alt="" class="mobile">
+</ng-template>
+
+
+<!-- Accordion list template -->
+<ng-template #accordionItem let-item let-index="index">
+    <div class="accordion__item-header">
+        <h4 [class]="{active: index === selectedItem}">
+            {{item.question}}
+        </h4>
+        <div class="accordion__item-header__arrow">
+           <img src="assets/faq-accordion/icon-arrow-down.svg" alt="">
+        </div>
+    </div>
+    <h4 *ngIf="index === selectedItem">
+        {{item.answer}}
+    </h4>
+</ng-template>
