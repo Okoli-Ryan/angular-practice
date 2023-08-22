@@ -1,5 +1,43 @@
-<center-layout bg="url('assets/social-proof/bg-pattern-bottom-desktop.svg')">
-    <div class="container">
+<div class="top-bg fullscreen"></div>
+<div class="bottom-bg fullscreen"></div>
+<div class="container">
 
+    <!-- DESCRIPTION -->
+    <div class="description">
+        <h1 class="description__header">10,000+ of our users love our products.</h1>
+        <p class="description__body">We only provide great products combined with excellent customer service. See what
+            our satisfied customers are saying about our services.</p>
     </div>
-</center-layout>
+
+
+    <!-- RATING CARDS -->
+    <div class="rating-cards">
+        <div class="rating-cards__container">
+
+            <div class="rating-cards__item" *ngFor="let item of ratings">
+                <div class="rating-cards__item__stars">
+                    <img src="assets/social-proof/icon-star.svg" alt="star rating icon"
+                        *ngFor="let star of [1, 2, 3, 4, 5]">
+                </div>
+                <h3>Rated 5 Stars in {{item}}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="testimonials">
+        <div class="testimonials__item" *ngFor="let item of testimonials">
+            <div class="testimonials__item-header">
+                <img [src]="item.image" alt="" srcset="">
+                <div class="testimonials__item-name">
+                    <h4>{{item.name}}</h4>
+                    <p>Verified Buyer</p>
+                </div>
+            </div>
+            <div class="testimonials__item-body">
+                "{{item.quote}}"
+            </div>
+        </div>
+    </div>
+
+</div>

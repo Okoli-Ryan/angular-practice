@@ -1,3 +1,226 @@
-:host {
+$primary-color: #511f51;
+$light-primary-color: #f7f2f8;
+$secondary-color: #ED6AAA;
+$text-color: #927c8b;
+
+* {
+    font-family: HankenGrotesk;
+    color: $primary-color;
+    z-index: 2;
+}
+
+.fullscreen {
+
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.top-bg {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    background-repeat: no-repeat !important;
+    background: url(../../../assets/social-proof/bg-pattern-top-desktop.svg);
+}
+
+.bottom-bg {
+    z-index: 1;
+    position: absolute;
+    background-repeat: no-repeat !important;
+    bottom: 0;
     background: url(../../../assets/social-proof/bg-pattern-bottom-desktop.svg);
+}
+
+.container {
+    width: clamp(16rem, 90vw, 90rem);
+    padding: 5rem 0;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    flex-direction: column;
+    gap: 2rem;
+}
+
+// DESCRIPTION ----------------------------------------------------------------
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: span 6;
+    gap: 1.5rem;
+
+    &__header {
+        font-weight: 900;
+        font-size: 3rem;
+        max-width: 16rem;
+        line-height: 2.5rem;
+        font-family: Noah;
+    }
+
+    &__body {
+        font-weight: 400;
+        color: $text-color;
+        line-height: 1.5rem;
+    }
+
+    &>* {
+        text-align: center;
+    }
+}
+
+
+// RATINGS CARDS ----------------------------------------------------------------
+
+.rating-cards {
+    grid-column: span 6;
+
+    &__container {
+
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+    }
+        
+    &__item {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        flex-direction: column;
+        white-space: nowrap;
+        padding: 2rem;
+        border-radius: 8px;
+        background-color: $light-primary-color
+    }
+
+    &__item__stars {
+        display: flex;
+        gap: .5rem
+    }
+
+}
+
+// Testimonials ----------------------------------------------------------------
+
+.testimonials {
+    display: grid;
+    gap: 1rem;
+    flex-direction: column;
+    grid-column: span 6;
+
+    &__item {
+        border-radius: 8px;
+        padding: 1.5rem;
+        background-color: $primary-color;
+    }
+
+    &__item-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__item-header img {
+        border-radius: 50%;
+        width: 20%;
+        max-width: 4rem;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+    }
+
+    &__item-name>h4 {
+        color: white;
+        font-weight: 900;
+    }
+
+    &__item-name>p {
+        color: $secondary-color;
+        margin-top: 4px;
+    }
+
+    &__item-body {
+        margin-top: 1rem;
+        color: white;
+        line-height: 150%;
+    }
+
+}
+
+
+// Media queries ----------------------------------------------------------------
+
+@media screen and (min-width: 768px) {
+
+    .container {
+        font-size: 14px;
+        gap: 10%;
+    }
+
+    .description {
+        align-items: flex-start;
+        grid-column: span 2;
+        width: 100%;
+
+        &__header {
+            max-width: 24rem;
+        }
+
+        & > * {
+            text-align: left;
+        }
+    }
+
+    .rating-cards {
+        $offset: 5%;
+        justify-self: flex-end;
+        grid-column: span 4;
+        width: 100%;
+        justify-content: center;
+        
+        &__container {
+            width: 100%;
+            margin-left: auto;
+        }
+
+        &__item {
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 1rem 3rem;
+            position: relative;
+        }
+
+        @for $i from 0 through 2 {
+            &__item:nth-of-type(#{$i + 1}) {
+                right: $offset * (2 - $i);
+            }
+        }
+    }
+
+    .testimonials {
+        $offset: 10%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        @for $i from 0 through 2 {
+            &__item:nth-of-type(#{$i + 1}) {
+                position: relative;
+                top: $offset * $i
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+
+    .description, .rating-cards {
+        grid-column: span 3;
+    }
+
+    .rating-cards {
+
+        &__item {
+            max-width: 36rem;
+        }
+    }
 }

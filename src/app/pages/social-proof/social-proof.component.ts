@@ -1,14 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { CenterLayoutComponent } from 'src/app/layouts/center-layout/center-layout.component';
+import { RATINGS, TESTIMONIALS } from './social-proof.data';
 
 @Component({
   standalone: true,
   selector: 'app-social-proof',
   templateUrl: './social-proof.component.html',
   styleUrls: ['./social-proof.component.scss'],
-  imports: [CommonModule, CenterLayoutComponent]
+  imports: [CommonModule]
 })
 export class SocialProofComponent {
 
+  ratings = RATINGS
+  testimonials = TESTIMONIALS
 }
