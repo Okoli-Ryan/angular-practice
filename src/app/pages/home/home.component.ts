@@ -12,5 +12,5 @@ import { routes } from 'src/app/app-routing.module';
 })
 export class HomeComponent{
 
-  currentRoutes = routes
+  currentRoutes = [...routes].reverse()
 }

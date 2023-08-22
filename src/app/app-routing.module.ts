@@ -8,6 +8,7 @@ import { FrontendMentorFiveComponent } from './pages/frontend-mentor-five/fronte
 import { InteractiveRatingComponent } from './pages/interactive-rating/interactive-rating.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FaqAccordionComponent } from './pages/faq-accordion/faq-accordion.component';
+import { SocialProofComponent } from './pages/social-proof/social-proof.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,7 @@ export const routes: Routes = [
   {path: 'frontend-mentor-5', component: FrontendMentorFiveComponent},
   {path: 'interactive-rating', component: InteractiveRatingComponent},
   {path: 'faq-accordion', component: FaqAccordionComponent},
+  {path: 'social-proof', component: SocialProofComponent},
 ];
 
 @NgModule({
