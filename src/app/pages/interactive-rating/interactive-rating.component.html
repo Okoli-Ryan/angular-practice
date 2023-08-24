@@ -10,7 +10,7 @@
         </p>
         <div class="rating-buttons-container">
             <button (click)="selectRating(item)" *ngFor="let item of [1, 2, 3, 4, 5]"
-                [class]="{'rating-button__active': selectedRating === item, 'rating-button': true}">
+                [class]="{'rating-button__active': selectedRating === item, 'rating-button': true}" tooltip="{{item}}">
                 {{item}}
             </button>
         </div>

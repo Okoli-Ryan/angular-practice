@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { CenterLayoutComponent } from 'src/app/layouts/center-layout/center-layout.component';
+import { TooltipDirective } from '../../shared/directives/tooltip.directive';
 
 @Component({
   standalone: true,
   selector: 'app-interactive-rating',
   templateUrl: './interactive-rating.component.html',
   styleUrls: ['./interactive-rating.component.scss'],
-  imports: [CenterLayoutComponent, CommonModule]
+  imports: [CenterLayoutComponent, CommonModule, TooltipDirective]
 })
 export class InteractiveRatingComponent {
 
