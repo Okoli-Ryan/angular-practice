@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -30,7 +32,27 @@
     font-weight: bold;
     src: url(./assets/fonts/Fontspring-DEMO-grobek-bold.otf);
 }
+
 @font-face {
     font-family: Grobek;
     src: url(./assets/fonts/Fontspring-DEMO-grobekalt-regular.otf);
+}
+
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/age-calculator/fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/age-calculator/fonts/Poppins-Bold.ttf);
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url(./assets/age-calculator/fonts/Poppins-ExtraBoldItalic.ttf);
+    font-weight: 800;
+    font-style: italic;
 }

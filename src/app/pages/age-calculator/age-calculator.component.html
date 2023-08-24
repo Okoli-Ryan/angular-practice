@@ -1,0 +1,36 @@
+<center-layout bg="#f0f0f0">
+    <div class="container">
+
+        <!-- Form Section -->
+        <div class="form-container">
+            <ng-container *ngFor="let item of dateValues" [ngTemplateOutlet]="input"
+                [ngTemplateOutletContext]="{$implicit: item}" />
+        </div>
+        <!--/ Form Section -->
+
+        <!-- Divider section -->
+        <div class="divider">
+            <button class="divider__arrow">
+                <img src="assets/age-calculator/images/icon-arrow.svg" alt="">
+            </button>
+        </div>
+        <!--/ Divider section -->
+
+        <!-- Data display section -->
+        <div class="data-display">
+            <h1><span>38</span> years</h1>
+            <h1><span>3</span> months</h1>
+            <h1><span>11</span> days</h1>
+        </div>
+        <!--/ Data display section -->
+    </div>
+</center-layout>
+
+<!-- Input component -->
+<ng-template #input let-data="">
+    <div class="input-container">
+        <label for="{{data.label}}" class="input-label">{{data.label}}</label>
+        <input type="number" placeholder="{{data.placeholder}}" id="{{data.label}}">
+    </div>
+</ng-template>
+<!--/ Input component -->

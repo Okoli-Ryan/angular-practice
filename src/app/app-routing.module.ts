@@ -9,6 +9,7 @@ import { InteractiveRatingComponent } from './pages/interactive-rating/interacti
 import { HomeComponent } from './pages/home/home.component';
 import { FaqAccordionComponent } from './pages/faq-accordion/faq-accordion.component';
 import { SocialProofComponent } from './pages/social-proof/social-proof.component';
+import { AgeCalculatorComponent } from './pages/age-calculator/age-calculator.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {path: 'interactive-rating', component: InteractiveRatingComponent},
   {path: 'faq-accordion', component: FaqAccordionComponent},
   {path: 'social-proof', component: SocialProofComponent},
+  {path: 'age-calculator', component: AgeCalculatorComponent},
 ];
 
 @NgModule({

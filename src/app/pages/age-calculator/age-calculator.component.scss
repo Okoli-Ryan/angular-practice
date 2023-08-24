@@ -1,0 +1,112 @@
+$primary-color: #874cff;
+$font-size: 24px;
+$font-size-lg: 48px;
+$font-size-xl: 64px;
+$light-gray: #DDD;
+
+* {
+    font-family: Poppins;
+}
+
+label {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+    color: #757575
+}
+
+input[type="number"] {
+    padding: .8rem .9rem;
+    font-size: $font-size;
+    font-weight: 600;
+    width: 100%;
+    max-width: 8rem;
+    border: 2px solid $light-gray;
+    border-radius: 8px;
+
+}
+
+.container {
+    width: clamp(16rem, 90vw, 42rem);
+    padding: clamp(1rem, 5%, 2rem);
+    border-radius: 16px;
+    background-color: white;
+    border-bottom-right-radius: 25%;
+}
+
+// Form section ----------------------------------------------------------------
+
+.form-container {
+    display: grid;
+    gap: 1rem;
+    max-width: 24rem;
+    grid-template-columns: repeat(auto-fit, minmax(3.5rem, 1fr));
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+// Divider section ----------------------------------------------------------------
+
+.divider {
+    height: 1px;
+    margin: 3rem 0;
+    background-color: $light-gray;
+    position: relative;
+
+    $arrow-height: 3rem;
+
+    &__arrow {
+        background-color: $primary-color;
+        border-radius: 50%;
+        width: $arrow-height;
+        height: $arrow-height;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        padding: .8rem;
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        top: calc($arrow-height/-2);
+        border: none;
+        cursor: pointer;
+
+        & img {
+
+            width: 100%;
+        }
+
+    }
+}
+
+// Data display ----------------------------------------------------
+.data-display {
+
+    & h1 {
+        font-style: italic;
+        font-size: clamp($font-size-lg, 10vw + 1rem, $font-size-xl);
+
+        & span {
+            color: $primary-color
+        }
+    }
+}
+
+// Media queries ----------------------------------------------------------------
+
+@media screen and (min-width: 768px) {
+    $arrow-height: 4rem;
+
+    .divider__arrow {
+        width: $arrow-height;
+        height: $arrow-height;
+        top: calc($arrow-height/-2);
+        right: 0;
+        transform: translateX(0);
+    }
+}
+    
