@@ -2,15 +2,15 @@
     <div class="container">
 
         <!-- Form Section -->
-        <div class="form-container">
+        <form class="form-container" [formGroup]="ValidateForm" (ngSubmit)="onSubmit()">
             <ng-container *ngFor="let item of dateValues" [ngTemplateOutlet]="input"
-                [ngTemplateOutletContext]="{$implicit: item}" />
-        </div>
+                [ngTemplateOutletContext]="{$implicit: item, formGroup: ValidateForm}" />
+        </form>
         <!--/ Form Section -->
 
         <!-- Divider section -->
         <div class="divider">
-            <button class="divider__arrow">
+            <button class="divider__arrow" (click)="onSubmit()">
                 <img src="assets/age-calculator/images/icon-arrow.svg" alt="">
             </button>
         </div>
@@ -18,19 +18,30 @@
 
         <!-- Data display section -->
         <div class="data-display">
-            <h1><span>38</span> years</h1>
-            <h1><span>3</span> months</h1>
-            <h1><span>11</span> days</h1>
+            <ng-container [ngTemplateOutlet]="display"
+                [ngTemplateOutletContext]="{$implicit: timeDifference.days, duration: 'day'}" />
+            <ng-container [ngTemplateOutlet]="display"
+                [ngTemplateOutletContext]="{$implicit: timeDifference.months, duration: 'month'}" />
+            <ng-container [ngTemplateOutlet]="display"
+                [ngTemplateOutletContext]="{$implicit: timeDifference.years, duration: 'year'}" />
         </div>
         <!--/ Data display section -->
     </div>
 </center-layout>
 
 <!-- Input component -->
-<ng-template #input let-data="">
+<ng-template #input let-data let-formGroup="formGroup" [formGroup]="ValidateForm">
     <div class="input-container">
         <label for="{{data.label}}" class="input-label">{{data.label}}</label>
-        <input type="number" placeholder="{{data.placeholder}}" id="{{data.label}}">
+        <input type="number" placeholder="{{data.placeholder}}" id="{{data.label}}" [formControlName]="data.label">
+        <p class="error" *ngIf="!formGroup.valid && formGroup.controls?.[data.label]?.touched">
+            {{formGroup.controls?.[data.label]?.errors?.error}}</p>
     </div>
 </ng-template>
 <!--/ Input component -->
+
+<!-- Display Template -->
+<ng-template #display let-data let-duration="duration">
+    <h1><span>{{data}}</span> {{data | multiple:duration}}</h1>
+</ng-template>
+<!--/ Display Template -->

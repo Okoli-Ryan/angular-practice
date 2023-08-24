@@ -21,9 +21,22 @@ input[type="number"] {
     font-weight: 600;
     width: 100%;
     max-width: 8rem;
-    border: 2px solid $light-gray;
+    border: 1px solid $light-gray;
     border-radius: 8px;
+    
+    &.ng-untouched {
+        border: 1px solid $light-gray !important;
+    }
+    &.ng-invalid {
+        border-color: red;
+    }
+}
 
+.error {
+    font-size: 12px;
+    color: red;
+    font-style: italic;
+    margin-top: -6px;
 }
 
 .container {
