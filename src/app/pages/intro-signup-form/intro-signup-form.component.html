@@ -1,0 +1,35 @@
+<div class="bg"></div>
+<center-layout>
+    <div class="container">
+        <div class="title-section section">
+            <h1>Learn to code by watching others</h1>
+            <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but
+                understanding how developers think is invaluable.</p>
+        </div>
+        <div class="form-section section">
+            <button class="try-it">
+                <span>Try it free 7 days then $20/mo. thereafter</span>
+            </button>
+            <form class="signup-form" [formGroup]="ValidateForm" (ngSubmit)="onSubmit()">
+                <ng-container *ngFor="let formField of formFields" [ngTemplateOutlet]="input"
+                    [ngTemplateOutletContext]="{$implicit: formField}">
+                </ng-container>
+                <button type="submit">Claim your free trial</button>
+                <span class="signup-form-footer">By clicking the button, you are agreeing to our <a href="#">Terms and
+                        Services</a></span>
+            </form>
+        </div>
+    </div>
+</center-layout>
+
+<!-- Input template -->
+<ng-template [formGroup]="ValidateForm" #input let-formField>
+    <div class="input-container">
+        <input placeholder="{{formField.placeholder}}" formControlName="{{formField.name}}"
+            [email]="formField.type === 'email'" [type]="formField.type">
+        <p *ngIf="ValidateForm.controls[formField.name].invalid && ValidateForm.controls[formField.name].touched"
+            class="error">
+            {{ValidateForm | errorMessage : formField.name}}</p>
+    </div>
+</ng-template>
+<!--/ Input template  -->

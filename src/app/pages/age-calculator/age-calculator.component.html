@@ -4,7 +4,7 @@
         <!-- Form Section -->
         <form class="form-container" [formGroup]="ValidateForm" (ngSubmit)="onSubmit()">
             <ng-container *ngFor="let item of dateValues" [ngTemplateOutlet]="input"
-                [ngTemplateOutletContext]="{$implicit: item, formGroup: ValidateForm}" />
+                [ngTemplateOutletContext]="{$implicit: item}" />
         </form>
         <!--/ Form Section -->
 
@@ -30,12 +30,12 @@
 </center-layout>
 
 <!-- Input component -->
-<ng-template #input let-data let-formGroup="formGroup" [formGroup]="ValidateForm">
+<ng-template #input let-data >
     <div class="input-container">
         <label for="{{data.label}}" class="input-label">{{data.label}}</label>
         <input type="number" placeholder="{{data.placeholder}}" id="{{data.label}}" [formControlName]="data.label">
-        <p class="error" *ngIf="!formGroup.valid && formGroup.controls?.[data.label]?.touched">
-            {{formGroup.controls?.[data.label]?.errors?.error}}</p>
+        <p class="error" *ngIf="!ValidateForm.valid && ValidateForm.controls?.[data.label]?.touched">
+            {{ValidateForm.controls[data.label].errors?.['error']}}</p>
     </div>
 </ng-template>
 <!--/ Input component -->

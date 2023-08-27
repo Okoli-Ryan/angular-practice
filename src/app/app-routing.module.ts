@@ -10,6 +10,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FaqAccordionComponent } from './pages/faq-accordion/faq-accordion.component';
 import { SocialProofComponent } from './pages/social-proof/social-proof.component';
 import { AgeCalculatorComponent } from './pages/age-calculator/age-calculator.component';
+import { IntroSignupFormComponent } from './pages/intro-signup-form/intro-signup-form.component';
 
 export const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,6 +23,7 @@ export const routes: Routes = [
   {path: 'faq-accordion', component: FaqAccordionComponent},
   {path: 'social-proof', component: SocialProofComponent},
   {path: 'age-calculator', component: AgeCalculatorComponent},
+  {path: 'intro-signup', component: IntroSignupFormComponent},
 ];
 
 @NgModule({
