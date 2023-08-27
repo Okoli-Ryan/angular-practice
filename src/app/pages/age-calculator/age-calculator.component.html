@@ -30,12 +30,12 @@
 </center-layout>
 
 <!-- Input component -->
-<ng-template #input let-data >
+<ng-template #input let-data [formGroup]="ValidateForm" >
     <div class="input-container">
         <label for="{{data.label}}" class="input-label">{{data.label}}</label>
         <input type="number" placeholder="{{data.placeholder}}" id="{{data.label}}" [formControlName]="data.label">
         <p class="error" *ngIf="!ValidateForm.valid && ValidateForm.controls?.[data.label]?.touched">
-            {{ValidateForm.controls[data.label].errors?.['error']}}</p>
+            {{ValidateForm | errorMessage : data.label}}</p>
     </div>
 </ng-template>
 <!--/ Input component -->

@@ -2,27 +2,28 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CenterLayoutComponent } from 'src/app/layouts/center-layout/center-layout.component';
-import { DateValidatorService } from './utils/date-validator.service';
 import { Multiple } from './pipes/multiple.pipe';
 import { CalculateDateDifference } from './utils/CalculateDateDifference';
+import { validateDay, validateDayInMonth, validateMonth, validateFutureDate } from './utils/date-validator.service';
+import { AgeCalculatorErrorMessagePipe } from './pipes/errorMessagePipe';
 
 @Component({
   standalone: true,
   selector: 'app-age-calculator',
   templateUrl: './age-calculator.component.html',
   styleUrls: ['./age-calculator.component.scss'],
-  imports: [CenterLayoutComponent, ReactiveFormsModule, CommonModule, Multiple]
+  imports: [CenterLayoutComponent, ReactiveFormsModule, CommonModule, Multiple, AgeCalculatorErrorMessagePipe]
 })
 export class AgeCalculatorComponent {
 
   ValidateForm!: FormGroup;
   timeDifference = { days: 0, months: 0, years: 0 }
 
-  constructor(private fb: FormBuilder, private dateValidator: DateValidatorService) {
+  constructor(private fb: FormBuilder) {
     this.ValidateForm = this.fb.group({
-      day: [null, [this.dateValidator.validateDay.bind(this), this.dateValidator.validateDayInMonth.bind(this)]],
-      month: [null, [this.dateValidator.validateMonth.bind(this), this.dateValidator.validateDayInMonth.bind(this)]],
-      year: [null, [this.dateValidator.validateYear.bind(this)]],
+      day: [null, [validateDay.bind(this), validateDayInMonth.bind(this), validateFutureDate.bind(this)]],
+      month: [null, [validateMonth.bind(this), validateDayInMonth.bind(this), validateFutureDate.bind(this)]],
+      year: [null, [validateFutureDate.bind(this)]],
     })
   }
 
@@ -45,7 +46,9 @@ export class AgeCalculatorComponent {
 
   // Calculate the time difference
   onSubmit() {
-    this.timeDifference = CalculateDateDifference(this.ValidateForm.value)
+    console.log(this.ValidateForm)
+    if (this.ValidateForm.valid)
+      this.timeDifference = CalculateDateDifference(this.ValidateForm.value)
   }
 
 }
