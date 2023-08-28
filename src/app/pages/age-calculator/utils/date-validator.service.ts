@@ -58,15 +58,13 @@ export const validateFutureDate = (control: FormControl) => {
   const currentDay = currentDate.getDate();
 
 
-  console.log(year.value > currentYear)
   if (year.value > currentYear) {
-    year.setErrors({futureYear: 'Future year selected'})
-    return {futureYear: 'Future year selected'}
+    year.setErrors({ futureYear: 'Future year selected' })
+    return { futureYear: 'Future year selected' }
   }
 
   // Month is in the future of the current year
   if (year.value === currentYear && month.value > currentMonth) {
-    console.log(month)
     const error = { futureMonth: 'Future month selected' };
     month.setErrors(error);
     return null
@@ -79,9 +77,6 @@ export const validateFutureDate = (control: FormControl) => {
     return null
   }
 
-  year.setErrors(null)
-  month.setErrors(null)
-  day.setErrors(null)
   return null
 }
 
