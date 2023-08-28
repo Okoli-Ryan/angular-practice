@@ -30,9 +30,10 @@
 </center-layout>
 
 <!-- Input component -->
-<ng-template #input let-data [formGroup]="ValidateForm" >
+<ng-template #input let-data [formGroup]="ValidateForm">
     <div class="input-container">
-        <label for="{{data.label}}" class="input-label">{{data.label}}</label>
+        <label for="{{data.label}}" class="input-label"
+            [style]="{color: ValidateForm.controls[data.label].touched ? 'red' : ''}">{{data.label}}</label>
         <input type="number" placeholder="{{data.placeholder}}" id="{{data.label}}" [formControlName]="data.label">
         <p class="error" *ngIf="!ValidateForm.valid && ValidateForm.controls?.[data.label]?.touched">
             {{ValidateForm | errorMessage : data.label}}</p>
@@ -42,6 +43,6 @@
 
 <!-- Display Template -->
 <ng-template #display let-data let-duration="duration">
-    <h1><span>{{data}}</span> {{data | multiple:duration}}</h1>
+    <h1><span>{{data ? data : '--'}}</span> {{data | multiple:duration}}</h1>
 </ng-template>
 <!--/ Display Template -->
